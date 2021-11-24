@@ -9,17 +9,18 @@ if (isset($_POST["cari"])) {
 }
 
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <title>Halaman Admin</title>
-</head>
-
+  </head>
 <body>
     <h1>Daftar Siswa</h1>
     <a href="tambah.php">Tambah data siswa</a>
@@ -29,10 +30,9 @@ if (isset($_POST["cari"])) {
         placeholder="Masukan keyword pencarian!" autocompalete="off">
         <button type="submit" name="cari!"> Cari! </button>
     </from>
-    <br>
-    
+    <br>   
 
-    <table border="1" cellpadding="10" cellspacing="0">
+        <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <td>No.</td>
             <td>Aksi</td>
@@ -59,6 +59,7 @@ if (isset($_POST["cari"])) {
             <?php $i++ ?>
         <?php endforeach; ?>
     </table>
+
 </body>
 
 </html>

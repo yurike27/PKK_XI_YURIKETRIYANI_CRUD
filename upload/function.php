@@ -68,6 +68,40 @@ function upload()
    }
 }
 
+function ubah($data)
+{
+    global $conn;
+    //ambil dari data tiap elemn form
+    $id =$data["id"];
+    $nim = htmlspecialchars($data["nim"]);
+    $nama = htmlspecialchars($data["nama"]);
+    $email = htmlspecialchars($data["email"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+
+    //cek apakah user pilih gambar baru atau tidak
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+    if ($_FILES['gambar']['error'] === 4) {
+    } else{
+
+     $gambar = upload();
+}
+
+//query insert data
+$query ="UPDATE maha siswa SET
+         nim =  '$nim' 
+         nama ='$nama'
+         email ='$email' 
+         jurusan = '$jurusan'
+         gambar = 'gambar'
+
+         WHERE id = $id
+         ";
+    mysqli_query($conn,$query);
+    
+    return mysqli_affected_rows($conn);
+}
+
 function hapus($id)
 {
     global $koneksi;
@@ -84,4 +118,4 @@ function hapus($id)
                     jurusan LIKE '%$keyword%' OR
                     ";
         return query($query);
-}
+    }
